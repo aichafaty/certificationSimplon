@@ -18,10 +18,8 @@ public class Vaccins {
     private String nomVaccin;
     private String age;
     private String effetSecondaire;
-
     @ManyToOne
         private Maladies maladies;
-
     @OneToMany(mappedBy = "vaccins")
         private List<Vaccination> vaccinations;
 }

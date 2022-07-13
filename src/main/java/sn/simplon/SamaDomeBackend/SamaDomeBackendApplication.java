@@ -5,8 +5,10 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 import sn.simplon.SamaDomeBackend.entity.Maladies;
+import sn.simplon.SamaDomeBackend.entity.Vaccins;
 import sn.simplon.SamaDomeBackend.repository.MaladiesRepository;
 import sn.simplon.SamaDomeBackend.repository.VaccinationRepository;
+import sn.simplon.SamaDomeBackend.repository.VaccinsRepository;
 
 import java.util.Date;
 import java.util.stream.Stream;
@@ -19,13 +21,15 @@ public class SamaDomeBackendApplication {
 	}
 @Bean
 	CommandLineRunner  start (MaladiesRepository maladiesRepository,
-										VaccinationRepository vaccinationRepository) {
+							  VaccinsRepository vaccinsRepository) {
 		return args -> {
 			Stream.of("fievre jaune","diffeterie","tetanos").forEach(name->{
-				Maladies maladies=new Maladies();
-				maladies.setNomMaladie(name);
-				maladies.setDescription(name +"dangereux");
-				maladiesRepository.save(maladies);
+				Vaccins vaccins=new Vaccins();
+				vaccins.setId(1);
+				vaccins.setNomVaccin(name);
+				vaccins.setEffetSecondaire("maux de tete");
+				vaccins.setAge("12mois");
+				vaccinsRepository.save(vaccins);
 
 			});
 
