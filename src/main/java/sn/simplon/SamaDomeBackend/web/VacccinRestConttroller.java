@@ -34,8 +34,8 @@ public VaccinImplement vaccinService;
         return vaccinService.saveVaccins(vaccinsDTO);
     }
     @PutMapping("/vaccins/{id}")
-    public VaccinsDTO update(@PathVariable Long id,@RequestBody VaccinsDTO vaccinsDTO){
-       // vaccinsDTO.setId(id);
+    public VaccinsDTO update(@PathVariable  Long id,@RequestBody VaccinsDTO vaccinsDTO){
+        vaccinsDTO.setId(id);
         return vaccinService.updateVaccin(vaccinsDTO);
     }
     @DeleteMapping("/vaccins/{id}")

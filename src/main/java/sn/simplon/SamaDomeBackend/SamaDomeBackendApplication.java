@@ -19,21 +19,20 @@ public class SamaDomeBackendApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(SamaDomeBackendApplication.class, args);
 	}
-@Bean
-	CommandLineRunner  start (MaladiesRepository maladiesRepository,
-							  VaccinsRepository vaccinsRepository) {
-		return args -> {
-			Stream.of("fievre jaune","diffeterie","tetanos").forEach(name->{
-				Vaccins vaccins=new Vaccins();
-				vaccins.setId(1);
-				vaccins.setNomVaccin(name);
-				vaccins.setEffetSecondaire("maux de tete");
-				vaccins.setAge("12mois");
-				vaccinsRepository.save(vaccins);
-
-			});
-
-		};
-
-	}
+//@Bean
+//	CommandLineRunner  start (MaladiesRepository maladiesRepository,
+//							  VaccinsRepository vaccinsRepository) {
+//		return args -> {
+//			Stream.of("fievre jaune","diffeterie","tetanos").forEach(name->{
+//				Vaccins vaccins=new Vaccins();
+//				vaccins.setNomVaccin(name);
+//				vaccins.setEffetSecondaire("maux de tete");
+//				vaccins.setAge("12mois");
+//				vaccinsRepository.save(vaccins);
+//
+//			});
+//
+//		};
+//
+//	}
 }

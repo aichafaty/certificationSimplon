@@ -2,7 +2,9 @@ package sn.simplon.SamaDomeBackend.mappers;
 
 import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;
+import sn.simplon.SamaDomeBackend.dtos.MaladiesDTO;
 import sn.simplon.SamaDomeBackend.dtos.VaccinsDTO;
+import sn.simplon.SamaDomeBackend.entity.Maladies;
 import sn.simplon.SamaDomeBackend.entity.Vaccins;
 
 @Service
@@ -23,18 +25,18 @@ public class Mapper {
             return vaccins;
         }
 
-//        /*convertir entite departement en dto*/
-//        public DepartementDTO fromDepartement(Departement departement){
-//            DepartementDTO departementDTO=new DepartementDTO();
-//            BeanUtils.copyProperties(departement,departementDTO);
-//            return departementDTO;
-//        }
-//        /*Convertir entite departementDTO en entite departement*/
-//        public Departement fromDepartementDTO(DepartementDTO departementDTO){
-//            Departement departement=new Departement();
-//            BeanUtils.copyProperties(departementDTO,departement);
-//            return departement;
-//        }
+//        /*convertir entite maladie en dto*/
+        public MaladiesDTO fromMaladies(Maladies maladies){
+            MaladiesDTO maladiesDTO=new MaladiesDTO();
+            BeanUtils.copyProperties(maladies,maladiesDTO);
+            return maladiesDTO;
+        }
+//        /*Convertir entite maladiesDTO en entite maladie*/
+        public Maladies fromMaladiesDTO(MaladiesDTO maladiesDTO){
+            Maladies maladies=new Maladies();
+            BeanUtils.copyProperties(maladiesDTO,maladies);
+            return maladies;
+        }
 //
 //        /*Convertir entite Administrateur en entite AdministrateurDTO*/
 //        public AdministrateurDTO fromAdminstrateur(Administrateur administrateur){
