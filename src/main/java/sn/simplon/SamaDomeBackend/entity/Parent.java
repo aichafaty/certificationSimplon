@@ -1,23 +1,21 @@
 package sn.simplon.SamaDomeBackend.entity;
 
-
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import java.util.List;
 
 import javax.persistence.*;
-import java.util.Date;
 
 @Entity
- @Data @NoArgsConstructor @AllArgsConstructor
-public class Rv {
+@Data @AllArgsConstructor @NoArgsConstructor
+public class Parent {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private Date dateRv;
-    @ManyToOne
-    private Carnet carnet;
-    @ManyToOne
-    private Infirmier infirmier;
 
+    @OneToMany(mappedBy = "parent")
+    private List<Carnet> carnetList;
+    @ManyToOne
+    private Roles roles;
 }

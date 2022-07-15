@@ -21,4 +21,6 @@ public class Vaccins {
         private Maladies maladies;
     @OneToMany(mappedBy = "vaccins")
         private List<Vaccination> vaccinations;
+    @ManyToOne
+       private Admin admin;
 }

@@ -3,25 +3,23 @@ package sn.simplon.SamaDomeBackend.entity;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
+import java.util.List;
 import javax.persistence.*;
-import java.util.Date;
+
 @Entity
 @Data @NoArgsConstructor @AllArgsConstructor
-public class Vaccination {
+public class Admin {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private int age;
-    private Date dateVaccination;
-    private String observation;
+
+    @OneToMany(mappedBy = "admin")
+    private List<Notification> notificationList ;
+
+    @OneToMany(mappedBy = "admin")
+    private List<Vaccins> vaccinsList;
 
     @ManyToOne
-    private Vaccins vaccins;
+    private Roles roles;
 
-    @ManyToOne
-    private Carnet carnet;
-
-    @ManyToOne
-    private Infirmier infirmier;
 }

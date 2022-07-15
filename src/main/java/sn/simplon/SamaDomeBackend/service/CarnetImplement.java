@@ -17,8 +17,8 @@ import java.util.stream.Collectors;
 @Transactional
 
 public class CarnetImplement implements CarnetService{
-            private  CarnetRepository carnetRepository;
-            private Mapper mapperDTO;
+    private  CarnetRepository carnetRepository;
+    private Mapper mapperDTO;
     @Override
     public CarnetDTO saveCarnet(CarnetDTO carnetDTO) throws CarnetNotFoundException {
         Carnet carnet =mapperDTO.fromCarnetDTO(carnetDTO);
@@ -27,7 +27,7 @@ public class CarnetImplement implements CarnetService{
     }
     @Override
     public List<CarnetDTO> getAllCarnet() {
-        List<Carnet> carnetList= carnetRepository.findAll();
+      List<Carnet> carnetList= carnetRepository.findAll();
         List<CarnetDTO> carnetDTOS=carnetList.stream()
          .map(carnet-> mapperDTO.fromCarnet(carnet))
          .collect(Collectors.toList());
@@ -36,7 +36,7 @@ public class CarnetImplement implements CarnetService{
     @Override
     public CarnetDTO getOneCarnet(Long id) throws CarnetNotFoundException {
        Carnet carnet= carnetRepository.findById(id)
-        .orElseThrow(()->new CarnetNotFoundException("Cet carnet n'existe pas"));
+       . orElseThrow(()->new CarnetNotFoundException("Cet carnet n'existe pas"));
         return mapperDTO.fromCarnet(carnet);
     }
     @Override

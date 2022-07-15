@@ -121,6 +121,47 @@ public class Mapper {
         return utilisateur;
     }
 
+    /*convertir entitie roles en dto*/
+    public ParentDTO fromParent(Parent parent){
+        ParentDTO parentDTO=new ParentDTO();
+        BeanUtils.copyProperties(parent,parentDTO);
+        return parentDTO;
+    }
+    /*Convertir entite parentDTO en entite parent*/
+    public Parent fromParentDTO(ParentDTO parentDTO){
+        Parent parent = new Parent();
+        BeanUtils.copyProperties(parentDTO,parent);
+        return parent;
+    }
+
+
+    /*convertir entitie roles en dto*/
+    public InfirmierDTO fromInfirmier(Infirmier infirmier){
+        InfirmierDTO infirmierDTO=new InfirmierDTO();
+        BeanUtils.copyProperties(infirmier,infirmierDTO);
+        return infirmierDTO;
+    }
+    /*Convertir entite parentDTO en entite parent*/
+    public Infirmier fromInfirmierDTO(InfirmierDTO infirmierDTO){
+        Infirmier infirmier = new Infirmier();
+        BeanUtils.copyProperties(infirmierDTO,infirmier);
+        return infirmier;
+    }
+
+
+    /*convertir entitie roles en dto*/
+    public AdminDTO fromAdmin(Admin admin){
+        AdminDTO adminDTO=new AdminDTO();
+        BeanUtils.copyProperties(admin,adminDTO);
+        return adminDTO;
+    }
+    /*Convertir entite parentDTO en entite parent*/
+    public Admin fromAdminDTO(AdminDTO adminDTO){
+        Admin admin = new Admin();
+        BeanUtils.copyProperties(adminDTO,admin);
+        return admin;
+    }
+
 
 
 }
