@@ -2,10 +2,8 @@ package sn.simplon.SamaDomeBackend.mappers;
 
 import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;
-import sn.simplon.SamaDomeBackend.dtos.MaladiesDTO;
-import sn.simplon.SamaDomeBackend.dtos.VaccinsDTO;
-import sn.simplon.SamaDomeBackend.entity.Maladies;
-import sn.simplon.SamaDomeBackend.entity.Vaccins;
+import sn.simplon.SamaDomeBackend.dtos.*;
+import sn.simplon.SamaDomeBackend.entity.*;
 
 @Service
 public class Mapper {
@@ -25,78 +23,105 @@ public class Mapper {
             return vaccins;
         }
 
-//        /*convertir entite maladie en dto*/
+        /*convertir entite maladie en dto*/
         public MaladiesDTO fromMaladies(Maladies maladies){
             MaladiesDTO maladiesDTO=new MaladiesDTO();
             BeanUtils.copyProperties(maladies,maladiesDTO);
             return maladiesDTO;
         }
-//        /*Convertir entite maladiesDTO en entite maladie*/
+      /*Convertir entite maladiesDTO en entite maladie*/
         public Maladies fromMaladiesDTO(MaladiesDTO maladiesDTO){
             Maladies maladies=new Maladies();
             BeanUtils.copyProperties(maladiesDTO,maladies);
             return maladies;
         }
-//
-//        /*Convertir entite Administrateur en entite AdministrateurDTO*/
-//        public AdministrateurDTO fromAdminstrateur(Administrateur administrateur){
-//            AdministrateurDTO administrateurDTO=new AdministrateurDTO();
-//            BeanUtils.copyProperties(administrateur,administrateurDTO);
-//            administrateurDTO.setProfileDTO(fromProfile(administrateur.getProfile()));
-//            administrateurDTO.setDepartementDTO(fromDepartement(administrateur.getDepartement()));
-//            return administrateurDTO;
-//        }
-//        /*Convertir AdministrateurDTO en Administrateur*/
-//        public Administrateur formAdministrateurDTO(AdministrateurDTO administrateurDTO){
-//            Administrateur administrateur=new Administrateur();
-//            BeanUtils.copyProperties(administrateurDTO,administrateur);
-//            administrateur.setProfile(fromProfileDTO(administrateurDTO.getProfileDTO()));
-//            administrateur.setDepartement(fromDepartementDTO(administrateurDTO.getDepartementDTO()));
-//            return administrateur;
-//        }
-//        /*Convertir entite Etudiant en entite EtudiantDTO*/
-//        public EtudiantDTO fromEtudiant(Etudiant etudiant){
-//            EtudiantDTO etudiantDTO=new EtudiantDTO();
-//            BeanUtils.copyProperties(etudiant,etudiantDTO);
-//            etudiantDTO.setFiliereDTO(fromFiliere(etudiant.getFiliere()));
-//            etudiantDTO.setProfileDTO(fromProfile(etudiant.getProfile()));
-//            return etudiantDTO;
-//        }
-//        /*Convertir EtudiantDTO en Etudiant*/
-//        public Etudiant fromEtudiantDTO(EtudiantDTO etudiantDTO){
-//            Etudiant etudiant=new Etudiant();
-//            BeanUtils.copyProperties(etudiantDTO,etudiant);
-//            etudiant.setFiliere(fromFiliereDTO(etudiantDTO.getFiliereDTO()));
-//            etudiant.setProfile(fromProfileDTO(etudiantDTO.getProfileDTO()));
-//            return etudiant;
-//        }
-//        /*Convertir entite Filiere en entite FiliereDTO*/
-//        public FiliereDTO fromFiliere(Filiere filiere){
-//            FiliereDTO filiereDTO=new FiliereDTO();
-//            BeanUtils.copyProperties(filiere,filiereDTO);
-//            return filiereDTO;
-//        }
-//        /*Convertir entite FiliereDTO en entite Filere*/
-//        public Filiere fromFiliereDTO(FiliereDTO filiereDTO){
-//            Filiere filiere=new Filiere();
-//            BeanUtils.copyProperties(filiereDTO,filiere);
-//            return filiere;
-//        }
-//        /*Convertir entite Demande en entite DemandeDTO*/
-//        public DemandeDTO fromDemande(Demande demande){
-//            DemandeDTO demandeDTO=new DemandeDTO();
-//            BeanUtils.copyProperties(demande,demandeDTO);
-//            demandeDTO.setEtudiant(fromEtudiant(demande.getEtudiant()));
-//            demandeDTO.setDepartement(fromDepartement(demande.getDepartement()));
-//            return demandeDTO;
-//        }
-//        /*Convertir entite DemandeDTO en entite Demande*/
-//        public Demande fromDemandeDTO(DemandeDTO demandeDTO){
-//            Demande demande=new Demande();
-//            BeanUtils.copyProperties(demandeDTO,demande);
-//            demande.setEtudiant(fromEtudiantDTO(demandeDTO.getEtudiant()));
-//            demande.setDepartement(fromDepartementDTO(demandeDTO.getDepartement()));
-//            return demande;
-//        }
+        /*convertir entite vaccination en dto*/
+        public VaccinationDTO fromVaccination(Vaccination vaccination){
+            VaccinationDTO vaccinationDTO=new VaccinationDTO();
+            BeanUtils.copyProperties(vaccination,vaccinationDTO);
+
+            return vaccinationDTO;
+        }
+        /*Convertir entite vaccinationDTO en entite vaccination*/
+        public Vaccination fromVaccinationDTO(VaccinationDTO vaccinationDTO){
+            Vaccination  vaccination=new Vaccination();
+            BeanUtils.copyProperties(vaccinationDTO,vaccination);
+            return vaccination;
+        }
+
+    /*convertir entite carnet en dto*/
+    public CarnetDTO fromCarnet(Carnet carnet){
+        CarnetDTO carnetDTO=new CarnetDTO();
+        BeanUtils.copyProperties(carnet,carnetDTO);
+
+        return carnetDTO;
     }
+    /*Convertir entite carnetDTO en entite carnet*/
+    public Carnet fromCarnetDTO(CarnetDTO carnetDTO){
+        Carnet carnet=new Carnet();
+        BeanUtils.copyProperties(carnetDTO,carnet);
+        return carnet;
+    }
+
+
+    /*convertir entite rv en dto*/
+    public RvDTO fromRv(Rv rv){
+        RvDTO rvDTO=new RvDTO();
+        BeanUtils.copyProperties(rv,rvDTO);
+
+        return rvDTO;
+    }
+    /*Convertir entite rvDTO en entite rv*/
+    public Rv fromRvDTO(RvDTO rvDTO){
+        Rv rv=new Rv();
+        BeanUtils.copyProperties(rvDTO,rv);
+        return rv;
+    }
+
+
+    /*convertir entite notification en dto*/
+    public NotificationDTO fromNotification(Notification notification){
+        NotificationDTO notificationDTO=new NotificationDTO();
+        BeanUtils.copyProperties(notification,notificationDTO);
+
+        return notificationDTO;
+    }
+    /*Convertir entite notificationDTO en entite notification*/
+    public Notification fromNotificationDTO(NotificationDTO NotificationDTO){
+        Notification notification=new Notification();
+        BeanUtils.copyProperties(NotificationDTO,notification);
+        return notification;
+    }
+
+
+
+    /*convertir entitie roles en dto*/
+    public RolesDTO fromRoles(Roles roles){
+        RolesDTO rolesDTO=new RolesDTO();
+        BeanUtils.copyProperties(roles,rolesDTO);
+        return rolesDTO;
+    }
+    /*Convertir entite rolesDTO en entite roles*/
+    public Roles fromRolesDTO(RolesDTO rolesDTO){
+        Roles roles = new Roles();
+        BeanUtils.copyProperties(rolesDTO,roles);
+        return roles;
+    }
+
+    /*convertir entitie roles en dto*/
+    public UtilisateurDTO fromUtilisateur(Utilisateur utilisateur){
+        UtilisateurDTO utilisateurDTO=new UtilisateurDTO();
+        BeanUtils.copyProperties(utilisateur,utilisateurDTO);
+        return utilisateurDTO;
+    }
+    /*Convertir entite rolesDTO en entite roles*/
+    public Utilisateur fromUtilisateurDTO(UtilisateurDTO utilisateurDTO){
+        Utilisateur utilisateur = new Utilisateur();
+        BeanUtils.copyProperties(utilisateurDTO,utilisateur);
+        return utilisateur;
+    }
+
+
+
+}
 

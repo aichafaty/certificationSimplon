@@ -5,12 +5,8 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Data @AllArgsConstructor @NoArgsConstructor
-
-public class MaladiesDTO {
-
+public class NotificationDTO {
     private Long id;
-    private String nomMaladie;
-    private String description;
-
-
+    private String sms;
+    private String frequence;
 }

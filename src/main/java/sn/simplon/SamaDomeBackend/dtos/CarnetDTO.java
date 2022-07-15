@@ -1,18 +1,16 @@
-package sn.simplon.SamaDomeBackend.entity;
+package sn.simplon.SamaDomeBackend.dtos;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import sn.simplon.SamaDomeBackend.entity.Rv;
+import sn.simplon.SamaDomeBackend.entity.Vaccination;
 
-import javax.persistence.*;
+
 import java.util.Date;
 import java.util.List;
-
-@Entity
-@Data @NoArgsConstructor @AllArgsConstructor
-public class Carnet {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+@Data @AllArgsConstructor @NoArgsConstructor
+public class CarnetDTO {
     private Long id;
     private String numeroCarnet;
     private String nomEnfant;
@@ -30,11 +28,6 @@ public class Carnet {
     private String examComplementaire;
     private String gynecologue;
     private String numbGynecologue;
-
-    @OneToMany(mappedBy = "carnet")
     private List<Vaccination> vaccinations;
-
-    @OneToMany(mappedBy = "carnet")
-    private List<Rv> rvs;
-
+    //private List<Rv> rvs;
 }

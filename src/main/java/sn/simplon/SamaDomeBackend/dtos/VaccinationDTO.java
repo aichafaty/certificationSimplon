@@ -1,24 +1,19 @@
-package sn.simplon.SamaDomeBackend.entity;
+package sn.simplon.SamaDomeBackend.dtos;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import sn.simplon.SamaDomeBackend.entity.Carnet;
+import sn.simplon.SamaDomeBackend.entity.Vaccins;
 
-import javax.persistence.*;
 import java.util.Date;
-@Entity
-@Data @NoArgsConstructor @AllArgsConstructor
-public class Vaccination {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+@Data @AllArgsConstructor @NoArgsConstructor
+public class VaccinationDTO {
+
     private Long id;
     private int age;
     private Date dateVaccination;
     private String observation;
-
-    @ManyToOne
     private Vaccins vaccins;
-
-    @ManyToOne
     private Carnet carnet;
 }

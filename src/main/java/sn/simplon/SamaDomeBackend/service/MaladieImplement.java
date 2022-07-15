@@ -1,23 +1,22 @@
 package sn.simplon.SamaDomeBackend.service;
-
 import org.springframework.stereotype.Service;
 import sn.simplon.SamaDomeBackend.Exception.MaladieNotFoundException;
 import sn.simplon.SamaDomeBackend.dtos.MaladiesDTO;
-import sn.simplon.SamaDomeBackend.dtos.VaccinsDTO;
 import sn.simplon.SamaDomeBackend.entity.Maladies;
-import sn.simplon.SamaDomeBackend.entity.Vaccins;
 import sn.simplon.SamaDomeBackend.mappers.Mapper;
 import sn.simplon.SamaDomeBackend.repository.MaladiesRepository;
 
 
 import javax.transaction.Transactional;
 import java.util.List;
+import java.util.stream.Collectors;
+
 @Service
 @Transactional
 
 public class MaladieImplement implements MaladiesService{
-    private MaladiesRepository maladiesRepository;
-    private Mapper mapperDTO;
+    private  final MaladiesRepository maladiesRepository;
+    private  Mapper mapperDTO;
 
     public MaladieImplement(MaladiesRepository maladiesRepository,Mapper mapperDTO){
         this.maladiesRepository=maladiesRepository;
@@ -32,21 +31,31 @@ public class MaladieImplement implements MaladiesService{
 
     @Override
     public List<MaladiesDTO> getAllMaladies() {
-        return null;
+        List<Maladies> maladiesList= maladiesRepository.findAll();
+        List<MaladiesDTO> maladiesDTOS=maladiesList.stream()
+                .map(maladies-> mapperDTO.fromMaladies(maladies))
+                .collect(Collectors.toList());
+        return maladiesDTOS;
     }
 
     @Override
     public MaladiesDTO getOneMaladie(Long id) throws MaladieNotFoundException {
-        return null;
+        Maladies maladies= maladiesRepository.findById(id)
+                .orElseThrow(()->new MaladieNotFoundException("Cet maladie n'existe pas"));
+        return mapperDTO.fromMaladies(maladies);
     }
 
     @Override
-    public VaccinsDTO updateMaladie(MaladiesDTO maladiesDTO) {
-        return null;
+    public MaladiesDTO updateMaladie(MaladiesDTO maladiesDTO) {
+        Maladies maladies=mapperDTO.fromMaladiesDTO(maladiesDTO);
+        Maladies maladieUpdate=maladiesRepository.save(maladies);
+        return mapperDTO.fromMaladies(maladieUpdate);
     }
 
     @Override
     public void deleteMaladie(Long id) throws MaladieNotFoundException {
-
+        Maladies maladies= maladiesRepository.findById(id)
+                .orElseThrow(()->new MaladieNotFoundException("Cet id n'existe pas"));
+        maladiesRepository.delete(maladies);
     }
 }
