@@ -6,9 +6,9 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-import java.util.ArrayList;
+
 import java.util.List;
-import java.util.Collection;
+
 import java.util.Date;
 @Entity
 @Data @NoArgsConstructor @AllArgsConstructor
@@ -33,8 +33,11 @@ public class Utilisateur {
     @OneToMany(mappedBy = "utilisateur")
     private List<Notification> notifications;
 
-    @ManyToMany(fetch = FetchType.EAGER)
-    private Collection<Roles>  roles=new ArrayList<>();
+    @OneToMany(mappedBy = "utilisateur")
+    private List<UserRoles> userRoles;
+
+//    @ManyToMany(fetch = FetchType.EAGER)
+//    private Collection<Roles>  roles=new ArrayList<>();
 
 }
 
