@@ -14,6 +14,7 @@ public class VaccinationDTO {
     private int age;
     private Date dateVaccination;
     private String observation;
+
     private Vaccins vaccins;
     private Carnet carnet;
 }

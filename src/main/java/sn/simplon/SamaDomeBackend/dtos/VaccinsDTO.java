@@ -12,5 +12,5 @@ public class VaccinsDTO {
     private String nomVaccin;
     private String age;
     private String effetSecondaire;
-    //private Maladies maladies;
+    private Maladies maladies;
 }

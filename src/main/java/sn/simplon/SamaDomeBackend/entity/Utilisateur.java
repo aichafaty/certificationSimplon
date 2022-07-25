@@ -1,6 +1,7 @@
 
 package sn.simplon.SamaDomeBackend.entity;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -25,9 +26,13 @@ public class Utilisateur {
     private String telephone;
 
     @OneToMany(mappedBy = "utilisateur")
+    //PERMET DE TENIR COMPTE DE LA classe quen mode lecture
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private List<Rv> rvList;
 
     @OneToMany(mappedBy = "utilisateur")
+    //PERMET DE TENIR COMPTE DE LA classe quen mode lecture
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private List<Vaccins> vaccins;
 
     @OneToMany(mappedBy = "utilisateur")

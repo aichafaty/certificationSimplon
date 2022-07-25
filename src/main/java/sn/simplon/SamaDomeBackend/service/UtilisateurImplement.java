@@ -7,6 +7,7 @@ import sn.simplon.SamaDomeBackend.dtos.UtilisateurDTO;
 
 import sn.simplon.SamaDomeBackend.entity.Utilisateur;
 import sn.simplon.SamaDomeBackend.mappers.Mapper;
+import sn.simplon.SamaDomeBackend.repository.RolesRepository;
 import sn.simplon.SamaDomeBackend.repository.UtilisateurRepository;
 
 import javax.transaction.Transactional;
@@ -19,6 +20,10 @@ import java.util.stream.Collectors;
 public class UtilisateurImplement implements UtilisateurService{
     private UtilisateurRepository utilisateurRepository;
     private Mapper mapperDTO;
+    public UtilisateurImplement(UtilisateurRepository utilisateurRepository, Mapper mapperDTO){
+        this.utilisateurRepository=utilisateurRepository;
+        this.mapperDTO=mapperDTO;
+    }
     
     @Override
     public UtilisateurDTO saveUtilisateur(UtilisateurDTO utilisateurDTO) throws UtilisateurNotFoundException {

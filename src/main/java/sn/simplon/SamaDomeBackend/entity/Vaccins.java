@@ -1,5 +1,6 @@
 package sn.simplon.SamaDomeBackend.entity;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -19,7 +20,9 @@ public class Vaccins {
     private String effetSecondaire;
     @ManyToOne
         private Maladies maladies;
+
     @OneToMany(mappedBy = "vaccins")
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
         private List<Vaccination> vaccinations;
     @ManyToOne
     private Utilisateur utilisateur;

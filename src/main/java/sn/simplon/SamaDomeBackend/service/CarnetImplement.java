@@ -8,6 +8,7 @@ import sn.simplon.SamaDomeBackend.dtos.CarnetDTO;
 import sn.simplon.SamaDomeBackend.entity.Carnet;
 import sn.simplon.SamaDomeBackend.mappers.Mapper;
 import sn.simplon.SamaDomeBackend.repository.CarnetRepository;
+import sn.simplon.SamaDomeBackend.repository.RvRepository;
 
 import javax.transaction.Transactional;
 import java.util.List;
@@ -19,6 +20,10 @@ import java.util.stream.Collectors;
 public class CarnetImplement implements CarnetService{
     private  CarnetRepository carnetRepository;
     private Mapper mapperDTO;
+    public CarnetImplement(CarnetRepository carnetRepository, Mapper mapperDTO){
+        this.carnetRepository=carnetRepository;
+        this.mapperDTO=mapperDTO;
+    }
     @Override
     public CarnetDTO saveCarnet(CarnetDTO carnetDTO) throws CarnetNotFoundException {
         Carnet carnet =mapperDTO.fromCarnetDTO(carnetDTO);
