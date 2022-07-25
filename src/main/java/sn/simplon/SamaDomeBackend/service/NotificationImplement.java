@@ -9,6 +9,7 @@ import sn.simplon.SamaDomeBackend.entity.Notification;
 import sn.simplon.SamaDomeBackend.mappers.Mapper;
 
 import sn.simplon.SamaDomeBackend.repository.NotificationRepository;
+import sn.simplon.SamaDomeBackend.repository.UtilisateurRepository;
 
 import javax.transaction.Transactional;
 import java.util.List;
@@ -20,6 +21,10 @@ import java.util.stream.Collectors;
 public class NotificationImplement implements NotificationService{
     private NotificationRepository notificationRepository;
     private Mapper mapperDTO;
+    public NotificationImplement(NotificationRepository notificationRepository, Mapper mapperDTO){
+        this.notificationRepository=notificationRepository;
+        this.mapperDTO=mapperDTO;
+    }
     
     @Override
     public NotificationDTO saveNotification(NotificationDTO notificationDTO) throws NotificationNotFoundException {
@@ -32,7 +37,7 @@ public class NotificationImplement implements NotificationService{
     public List<NotificationDTO> getAllNotification() {
         List<Notification> notificationList= notificationRepository.findAll();
         List<NotificationDTO> notificationDTOS=notificationList.stream()
-                .map(rv-> mapperDTO.fromNotification(rv))
+                .map(notification-> mapperDTO.fromNotification(notification))
                 .collect(Collectors.toList());
         return notificationDTOS;
     }

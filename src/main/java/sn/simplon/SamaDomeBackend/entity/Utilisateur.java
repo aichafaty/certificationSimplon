@@ -36,6 +36,8 @@ public class Utilisateur {
     private List<Vaccins> vaccins;
 
     @OneToMany(mappedBy = "utilisateur")
+    //PERMET DE TENIR COMPTE DE LA classe quen mode lecture
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private List<Notification> notifications;
 
     @OneToMany(mappedBy = "utilisateur")
