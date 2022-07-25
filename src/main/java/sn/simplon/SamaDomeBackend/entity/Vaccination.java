@@ -22,6 +22,5 @@ public class Vaccination {
     @ManyToOne
     private Carnet carnet;
 
-    @ManyToOne
-    private Infirmier infirmier;
+
 }

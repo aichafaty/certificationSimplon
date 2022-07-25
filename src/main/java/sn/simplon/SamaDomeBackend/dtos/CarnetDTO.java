@@ -29,5 +29,5 @@ public class CarnetDTO {
     private String gynecologue;
     private String numbGynecologue;
     private List<Vaccination> vaccinations;
-    //private List<Rv> rvs;
+
 }

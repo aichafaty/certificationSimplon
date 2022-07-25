@@ -17,7 +17,9 @@ public class Rv {
     private Date dateRv;
     @ManyToOne
     private Carnet carnet;
+
     @ManyToOne
-    private Infirmier infirmier;
+    private Utilisateur utilisateur;
+
 
 }

@@ -14,8 +14,7 @@ public class Notification {
     private Long id;
     private String sms;
     private String frequence;
-
     @ManyToOne
-    private Admin admin;
+    private Utilisateur utilisateur;
 
 }

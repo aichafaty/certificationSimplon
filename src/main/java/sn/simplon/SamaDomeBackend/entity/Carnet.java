@@ -37,7 +37,6 @@ public class Carnet {
     @OneToMany(mappedBy = "carnet")
     private List<Rv> rvs;
 
-    @ManyToOne
-    private Parent parent;
+
 
 }

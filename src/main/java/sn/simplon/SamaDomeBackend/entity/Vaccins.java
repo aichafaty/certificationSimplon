@@ -22,5 +22,6 @@ public class Vaccins {
     @OneToMany(mappedBy = "vaccins")
         private List<Vaccination> vaccinations;
     @ManyToOne
-       private Admin admin;
+    private Utilisateur utilisateur;
+
 }

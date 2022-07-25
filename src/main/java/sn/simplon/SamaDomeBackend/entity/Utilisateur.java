@@ -1,3 +1,4 @@
+
 package sn.simplon.SamaDomeBackend.entity;
 
 import lombok.AllArgsConstructor;
@@ -6,6 +7,7 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Collection;
 import java.util.Date;
 @Entity
@@ -22,7 +24,32 @@ public class Utilisateur {
     private Date dateNaissance;
     private String telephone;
 
+    @OneToMany(mappedBy = "utilisateur")
+    private List<Rv> rvList;
+
+    @OneToMany(mappedBy = "utilisateur")
+    private List<Vaccins> vaccins;
+
+    @OneToMany(mappedBy = "utilisateur")
+    private List<Notification> notifications;
+
     @ManyToMany(fetch = FetchType.EAGER)
     private Collection<Roles>  roles=new ArrayList<>();
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
