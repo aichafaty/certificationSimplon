@@ -61,4 +61,11 @@ public class UtilisateurImplement implements UtilisateurService{
                 .orElseThrow(()->new UtilisateurNotFoundException("Cet id n'existe pas"));
         utilisateurRepository.delete(utilisateur);
     }
+
+    @Override
+    public List<UtilisateurDTO> rechercheUtilisateur(String keyword) {
+        List<Utilisateur> utilisateurs=utilisateurRepository.findByNameContains(keyword);
+       List<UtilisateurDTO> utilisateurDTOS=utilisateurs.stream().map(cust->mapperDTO.fromUtilisateur(cust)).collect(Collectors.toList());
+        return utilisateurDTOS;
+    }
 }

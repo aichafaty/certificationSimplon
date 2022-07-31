@@ -11,4 +11,6 @@ public interface UtilisateurService {
     UtilisateurDTO getOneUtilisateur(Long id) throws UtilisateurNotFoundException;
     UtilisateurDTO updateUtilisateur(UtilisateurDTO vaccinationDTO);
     void deleteUtilisateur(Long id) throws UtilisateurNotFoundException;
+
+    List<UtilisateurDTO> rechercheUtilisateur(String keyword);
 }

@@ -8,6 +8,7 @@ import sn.simplon.SamaDomeBackend.service.UtilisateurImplement;
 import java.util.List;
 
 @RestController
+@CrossOrigin("*")
 public class UtilisateurRestController {
     public UtilisateurImplement utilisateurService;
 
@@ -19,6 +20,10 @@ public class UtilisateurRestController {
         return utilisateurService.getAllUtilisateur();
     }
 
+    @GetMapping("/utilisateur/reckerche")
+    public List<UtilisateurDTO> rechercheUtilisateur(@RequestParam(name = "keyword",defaultValue ="" )String keyword ){
+        return utilisateurService.rechercheUtilisateur(keyword);
+    }
     @GetMapping("/utilisateur/{id}")
     public UtilisateurDTO getOne(@PathVariable Long id) throws UtilisateurNotFoundException {
         return utilisateurService.getOneUtilisateur(id);
