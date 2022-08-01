@@ -64,7 +64,7 @@ public class UtilisateurImplement implements UtilisateurService{
 
     @Override
     public List<UtilisateurDTO> rechercheUtilisateur(String keyword) {
-        List<Utilisateur> utilisateurs=utilisateurRepository.findByNameContains(keyword);
+        List<Utilisateur> utilisateurs=utilisateurRepository.rechercheUtilisateur(keyword);
        List<UtilisateurDTO> utilisateurDTOS=utilisateurs.stream().map(cust->mapperDTO.fromUtilisateur(cust)).collect(Collectors.toList());
         return utilisateurDTOS;
     }
