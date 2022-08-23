@@ -8,6 +8,6 @@ public interface RvService {
     RvDTO saveRv(RvDTO vaccinationDTO) throws RvNotFoundException;
     List<RvDTO> getAllRv();
     RvDTO getOneRv(Long id) throws RvNotFoundException;
-    RvDTO updateRv(RvDTO vaccinationDTO);
+    RvDTO updateRv(RvDTO rvDTO);
     void deleteRv(Long id) throws RvNotFoundException;
 }

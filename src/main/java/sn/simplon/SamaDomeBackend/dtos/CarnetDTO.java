@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import sn.simplon.SamaDomeBackend.entity.Rv;
+import sn.simplon.SamaDomeBackend.entity.Utilisateur;
 import sn.simplon.SamaDomeBackend.entity.Vaccination;
 
 
@@ -25,9 +26,12 @@ public class CarnetDTO {
     private String prenomMere;
     private String nomMere;
     private String antecedent;
-    private String examComplementaire;
-    private String gynecologue;
-    private String numbGynecologue;
+//    private String examComplementaire;
+//    private String gynecologue;
+//    private String numbGynecologue;
+
     private List<Vaccination> vaccinations;
+    private List<Rv> rvs;
+   private Utilisateur utilisateur;
 
 }

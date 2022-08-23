@@ -10,12 +10,8 @@ import java.util.Date;
 
 @Data @AllArgsConstructor @NoArgsConstructor
 public class RvDTO {
-
     private Long id;
     private Date dateRv;
-
     private Carnet carnet;
     private Utilisateur utilisateur;
-
-
 }

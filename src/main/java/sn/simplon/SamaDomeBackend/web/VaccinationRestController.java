@@ -8,6 +8,7 @@ import sn.simplon.SamaDomeBackend.service.VaccinationImplement;
 import java.util.List;
 
 @RestController
+@CrossOrigin("*")
 public class VaccinationRestController {
     public VaccinationImplement vaccinationService;
 
@@ -15,7 +16,7 @@ public class VaccinationRestController {
         this.vaccinationService = vaccinationService;
     }
 
-    @GetMapping("/vaccination")
+    @GetMapping("/vaccinations")
     public List<VaccinationDTO> getAll(){
         return vaccinationService.getAllVaccination();
     }

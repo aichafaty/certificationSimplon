@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import sn.simplon.SamaDomeBackend.entity.Carnet;
+import sn.simplon.SamaDomeBackend.entity.Utilisateur;
 import sn.simplon.SamaDomeBackend.entity.Vaccins;
 
 import java.util.Date;
@@ -11,10 +12,10 @@ import java.util.Date;
 public class VaccinationDTO {
 
     private Long id;
-    private int age;
+    private String age;
     private Date dateVaccination;
     private String observation;
-
     private Vaccins vaccins;
     private Carnet carnet;
+    private Utilisateur utilisateur;
 }

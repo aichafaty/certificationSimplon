@@ -24,7 +24,7 @@ public class MaladieImplement implements MaladiesService{
     }
     @Override
     public MaladiesDTO saveMaladie(MaladiesDTO maladiesDTO) throws MaladieNotFoundException {
-        Maladies maladies =mapperDTO.fromMaladiesDTO(maladiesDTO);
+        Maladies maladies = mapperDTO.fromMaladiesDTO(maladiesDTO);
         Maladies maladieSave=maladiesRepository.save(maladies);
         return mapperDTO.fromMaladies(maladieSave);
     }

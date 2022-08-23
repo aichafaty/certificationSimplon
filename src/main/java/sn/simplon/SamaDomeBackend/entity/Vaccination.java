@@ -12,7 +12,7 @@ public class Vaccination {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private int age;
+    private String age;
     private Date dateVaccination;
     private String observation;
 
@@ -22,5 +22,7 @@ public class Vaccination {
     @ManyToOne
     private Carnet carnet;
 
+    @ManyToOne
+    private Utilisateur utilisateur;
 
 }

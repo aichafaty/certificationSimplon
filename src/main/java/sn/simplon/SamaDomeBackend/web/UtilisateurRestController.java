@@ -38,7 +38,7 @@ public class UtilisateurRestController {
         return utilisateurService.updateUtilisateur(UtilisateurDTO);
     }
     @DeleteMapping("/utilisateur/{id}")
-    public void delete(Long id) throws UtilisateurNotFoundException {
+    public void delete(@PathVariable Long id) throws UtilisateurNotFoundException {
         utilisateurService.deleteUtilisateur(id);
     }
 }

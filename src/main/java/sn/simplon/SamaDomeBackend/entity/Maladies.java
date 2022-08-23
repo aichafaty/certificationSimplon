@@ -13,8 +13,9 @@ import java.util.List;
 @Entity
 @Data @NoArgsConstructor @AllArgsConstructor
 public class Maladies {
-    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
     private String nomMaladie;
     private String description;
 

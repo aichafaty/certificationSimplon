@@ -7,31 +7,32 @@ import sn.simplon.SamaDomeBackend.service.NotificationImplement;
 
 import java.util.List;
 @RestController
+@CrossOrigin("*")
 public class NotificationRestController {
-    public NotificationImplement rvService;
+    public NotificationImplement notificationService;
 
-    public NotificationRestController(NotificationImplement rvService) {this.rvService = rvService;}
+    public NotificationRestController(NotificationImplement notificationService) {this.notificationService = notificationService;}
 
-    @GetMapping("/notifiaction")
+    @GetMapping("/notifiactions")
     public List<NotificationDTO> getAll(){
-        return rvService.getAllNotification();
+        return notificationService.getAllNotification();
     }
 
     @GetMapping("/notifiaction/{id}")
     public NotificationDTO getOne(@PathVariable Long id) throws NotificationNotFoundException {
-        return rvService.getOneNotification(id);
+        return notificationService.getOneNotification(id);
     }
     @PostMapping("/notifiaction")
     public NotificationDTO save(@RequestBody NotificationDTO NotificationDTO) throws NotificationNotFoundException {
-        return rvService.saveNotification(NotificationDTO);
+        return notificationService.saveNotification(NotificationDTO);
     }
     @PutMapping("/notifiaction/{id}")
     public NotificationDTO update(@PathVariable  Long id,@RequestBody NotificationDTO NotificationDTO){
         NotificationDTO.setId(id);
-        return rvService.updateNotification(NotificationDTO);
+        return notificationService.updateNotification(NotificationDTO);
     }
     @DeleteMapping("/notifiaction/{id}")
-    public void delete(Long id) throws NotificationNotFoundException {
-        rvService.deleteNotification(id);
+    public void delete(@PathVariable Long id) throws NotificationNotFoundException {
+        notificationService.deleteNotification(id);
     }
 }

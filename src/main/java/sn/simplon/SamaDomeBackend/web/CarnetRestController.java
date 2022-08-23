@@ -7,13 +7,13 @@ import sn.simplon.SamaDomeBackend.service.CarnetImplement;
 
 import java.util.List;
 @RestController
+@CrossOrigin("*")
 public class CarnetRestController {
     public CarnetImplement carnetService;
 
-
     public CarnetRestController(CarnetImplement carnetService) {this.carnetService = carnetService;}
 
-    @GetMapping("/carnet")
+    @GetMapping("/carnets")
     public List<CarnetDTO> getAll(){
         return carnetService.getAllCarnet();
     }
@@ -32,7 +32,7 @@ public class CarnetRestController {
         return carnetService.updateCarnet(CarnetDTO);
     }
     @DeleteMapping("/carnet/{id}")
-    public void delete(Long id) throws CarnetNotFoundException {
+    public void delete(@PathVariable Long id) throws CarnetNotFoundException {
         carnetService.deleteCarnet(id);
     }
 }

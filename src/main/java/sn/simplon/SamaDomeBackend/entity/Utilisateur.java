@@ -25,26 +25,35 @@ public class Utilisateur {
     private Date dateNaissance;
     private String telephone;
 
-    @OneToMany(mappedBy = "utilisateur")
+    @OneToMany(mappedBy = "utilisateur",fetch = FetchType.LAZY, cascade = { CascadeType.DETACH, CascadeType.MERGE, CascadeType.REFRESH, CascadeType.PERSIST, CascadeType.REMOVE })
     //PERMET DE TENIR COMPTE DE LA classe quen mode lecture
     @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private List<Rv> rvList;
 
-    @OneToMany(mappedBy = "utilisateur")
+    @OneToMany(mappedBy = "utilisateur",fetch = FetchType.LAZY, cascade = { CascadeType.DETACH, CascadeType.MERGE, CascadeType.REFRESH, CascadeType.PERSIST, CascadeType.REMOVE })
     //PERMET DE TENIR COMPTE DE LA classe quen mode lecture
     @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private List<Vaccins> vaccins;
-
-    @OneToMany(mappedBy = "utilisateur")
+    @OneToMany(mappedBy = "utilisateur",fetch = FetchType.LAZY, cascade = { CascadeType.DETACH, CascadeType.MERGE, CascadeType.REFRESH, CascadeType.PERSIST, CascadeType.REMOVE })
     //PERMET DE TENIR COMPTE DE LA classe quen mode lecture
     @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private List<Notification> notifications;
 
-    @OneToMany(mappedBy = "utilisateur")
+    @OneToMany(mappedBy = "utilisateur",fetch = FetchType.LAZY, cascade = { CascadeType.DETACH, CascadeType.MERGE, CascadeType.REFRESH, CascadeType.PERSIST, CascadeType.REMOVE })
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private List<UserRoles> userRoles;
 
 //    @ManyToMany(fetch = FetchType.EAGER)
 //    private Collection<Roles>  roles=new ArrayList<>();
+        @OneToMany(mappedBy = "utilisateur",fetch = FetchType.LAZY, cascade = { CascadeType.DETACH, CascadeType.MERGE, CascadeType.REFRESH, CascadeType.PERSIST, CascadeType.REMOVE })
+        //PERMET DE TENIR COMPTE DE LA classe quen mode lecture
+        @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
+        private List<Carnet> carnets;
+
+    @OneToMany(mappedBy = "utilisateur",fetch = FetchType.LAZY, cascade = { CascadeType.DETACH, CascadeType.MERGE, CascadeType.REFRESH, CascadeType.PERSIST, CascadeType.REMOVE })
+    //PERMET DE TENIR COMPTE DE LA classe quen mode lecture
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
+    private List<Vaccination> vaccinations;
 
 }
 

@@ -27,7 +27,7 @@ public class VaccinationImplement implements VaccinationService{
     
     
     @Override
-    public VaccinationDTO saveVaccination(VaccinationDTO vaccinationDTO) throws VaccinationNotFoundException {
+    public VaccinationDTO saveVaccination(VaccinationDTO vaccinationDTO) throws  VaccinationNotFoundException {
         Vaccination vaccination =mapperDTO.fromVaccinationDTO(vaccinationDTO);
         Vaccination vaccinationSave=vaccinationRepository.save(vaccination);
         return mapperDTO.fromVaccination(vaccinationSave);

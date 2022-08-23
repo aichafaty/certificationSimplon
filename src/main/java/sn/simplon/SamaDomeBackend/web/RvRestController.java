@@ -7,12 +7,13 @@ import sn.simplon.SamaDomeBackend.service.RvImplement;
 
 import java.util.List;
 @RestController
+@CrossOrigin("*")
 public class RvRestController {
     public RvImplement rvService;
 
     public RvRestController(RvImplement rvService) {this.rvService = rvService;}
 
-    @GetMapping("/rv")
+    @GetMapping("/rvs")
     public List<RvDTO> getAll(){
         return rvService.getAllRv();
     }
@@ -22,8 +23,8 @@ public class RvRestController {
         return rvService.getOneRv(id);
     }
     @PostMapping("/rv")
-    public RvDTO save(@RequestBody RvDTO RvDTO) throws RvNotFoundException {
-        return rvService.saveRv(RvDTO);
+    public RvDTO save(@RequestBody RvDTO rvDTO) throws RvNotFoundException {
+        return rvService.saveRv(rvDTO);
     }
     @PutMapping("/rv/{id}")
     public RvDTO update(@PathVariable  Long id,@RequestBody RvDTO RvDTO){
@@ -31,7 +32,7 @@ public class RvRestController {
         return rvService.updateRv(RvDTO);
     }
     @DeleteMapping("/rv/{id}")
-    public void delete(Long id) throws RvNotFoundException {
+    public void delete(@PathVariable Long id) throws RvNotFoundException {
         rvService.deleteRv(id);
     }
 }

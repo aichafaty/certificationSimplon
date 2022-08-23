@@ -21,9 +21,9 @@ public class Vaccins {
     @ManyToOne
         private Maladies maladies;
 
-    @OneToMany(mappedBy = "vaccins")
+    @OneToMany(mappedBy = "vaccins",fetch = FetchType.LAZY, cascade = { CascadeType.DETACH, CascadeType.MERGE, CascadeType.REFRESH, CascadeType.PERSIST, CascadeType.REMOVE })
     @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
-        private List<Vaccination> vaccinations;
+    private List<Vaccination> vaccinations;
     @ManyToOne
     private Utilisateur utilisateur;
 

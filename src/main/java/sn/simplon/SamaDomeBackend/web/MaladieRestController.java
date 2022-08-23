@@ -8,6 +8,7 @@ import sn.simplon.SamaDomeBackend.service.MaladieImplement;
 
 import java.util.List;
 @RestController
+@CrossOrigin("*")
 public class MaladieRestController {
     public MaladieImplement maladieService;
 
@@ -34,7 +35,7 @@ public class MaladieRestController {
         return maladieService.updateMaladie(MaladiesDTO);
     }
     @DeleteMapping("/maladies/{id}")
-    public void delete(Long id) throws MaladieNotFoundException {
+    public void delete(@PathVariable Long id) throws MaladieNotFoundException {
         maladieService.deleteMaladie(id);
     }
 }

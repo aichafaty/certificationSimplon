@@ -28,20 +28,21 @@ public class Carnet {
     private String prenomMere;
     private String nomMere;
     private String antecedent;
-    private String examComplementaire;
-    private String gynecologue;
-    private String numbGynecologue;
+//    private String examComplementaire;
+//    private String gynecologue;
+//    private String numbGynecologue;
 
-    @OneToMany(mappedBy = "carnet")
+    @OneToMany(mappedBy = "carnet",fetch = FetchType.LAZY, cascade = { CascadeType.DETACH, CascadeType.MERGE, CascadeType.REFRESH, CascadeType.PERSIST, CascadeType.REMOVE })
     //PERMET DE TENIR COMPTE DE LA classe quen mode lecture
     @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private List<Vaccination> vaccinations;
 
-    @OneToMany(mappedBy = "carnet")
+    @OneToMany(mappedBy = "carnet" ,fetch = FetchType.LAZY, cascade = { CascadeType.DETACH, CascadeType.MERGE, CascadeType.REFRESH, CascadeType.PERSIST, CascadeType.REMOVE })
     //PERMET DE TENIR COMPTE DE LA classe quen mode lecture
     @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private List<Rv> rvs;
 
-
+    @ManyToOne
+    private Utilisateur utilisateur;
 
 }

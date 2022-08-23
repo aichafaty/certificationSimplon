@@ -7,33 +7,34 @@ import sn.simplon.SamaDomeBackend.service.RolesImplement;
 
 import java.util.List;
 @RestController
+@CrossOrigin("*")
 public class RolesRestController {
-    public RolesImplement maladieService;
+    public RolesImplement rolesService;
 
-    public RolesRestController(RolesImplement maladieService) {
-        this.maladieService = maladieService;
+    public RolesRestController(RolesImplement rolesService) {
+        this.rolesService = rolesService;
     }
 
     @GetMapping("/roles")
     public List<RolesDTO> getAll(){
-        return maladieService.getAllRoles();
+        return rolesService.getAllRoles();
     }
 
     @GetMapping("/roles/{id}")
     public RolesDTO getOne(@PathVariable Long id) throws RolesNotFoundException {
-        return maladieService.getOneRoles(id);
+        return rolesService.getOneRoles(id);
     }
     @PostMapping("/roles")
     public RolesDTO save(@RequestBody RolesDTO RolesDTO) throws RolesNotFoundException {
-        return maladieService.saveRoles(RolesDTO);
+        return rolesService.saveRoles(RolesDTO);
     }
     @PutMapping("/roles/{id}")
     public RolesDTO update(@PathVariable  Long id,@RequestBody RolesDTO RolesDTO){
         RolesDTO.setId(id);
-        return maladieService.updateRoles(RolesDTO);
+        return rolesService.updateRoles(RolesDTO);
     }
     @DeleteMapping("/roles/{id}")
-    public void delete(Long id) throws RolesNotFoundException {
-        maladieService.deleteRoles(id);
+    public void delete(@PathVariable Long id) throws RolesNotFoundException {
+        rolesService.deleteRoles(id);
     }
 }

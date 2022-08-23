@@ -1,7 +1,7 @@
 package sn.simplon.SamaDomeBackend.web;
 
 
-import lombok.extern.slf4j.Slf4j;
+
 
 import org.springframework.web.bind.annotation.GetMapping;
 import java.util.List;
@@ -12,8 +12,9 @@ import org.springframework.web.bind.annotation.*;
 import sn.simplon.SamaDomeBackend.service.VaccinImplement;
 
 @RestController
+@CrossOrigin("*")
 //@Slf4j
-//@CrossOrigin gin("*")
+
 public class VacccinRestConttroller {
 
 public VaccinImplement vaccinService;
@@ -29,7 +30,7 @@ public VaccinImplement vaccinService;
     public VaccinsDTO getOne(@PathVariable Long id) throws VaccinsNotFoundException{
         return vaccinService.getOneVaccin(id);
     }
-    @PostMapping("/vaccins")
+    @PostMapping("/vaccin")
     public VaccinsDTO save(@RequestBody VaccinsDTO vaccinsDTO) throws VaccinsNotFoundException {
         return vaccinService.saveVaccins(vaccinsDTO);
     }
@@ -39,7 +40,7 @@ public VaccinImplement vaccinService;
         return vaccinService.updateVaccin(vaccinsDTO);
     }
     @DeleteMapping("/vaccins/{id}")
-    public void delete(Long id) throws VaccinsNotFoundException {
+    public void delete(@PathVariable Long id) throws VaccinsNotFoundException {
         vaccinService.deleteVaccin(id);
     }
 
