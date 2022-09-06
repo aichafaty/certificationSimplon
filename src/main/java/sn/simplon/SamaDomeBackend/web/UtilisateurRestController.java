@@ -1,8 +1,10 @@
 package sn.simplon.SamaDomeBackend.web;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import sn.simplon.SamaDomeBackend.Exception.UtilisateurNotFoundException;
 import sn.simplon.SamaDomeBackend.dtos.UtilisateurDTO;
+import sn.simplon.SamaDomeBackend.entity.Utilisateur;
 import sn.simplon.SamaDomeBackend.service.UtilisateurImplement;
 
 import java.util.List;
@@ -10,6 +12,7 @@ import java.util.List;
 @RestController
 @CrossOrigin("*")
 public class UtilisateurRestController {
+    @Autowired
     public UtilisateurImplement utilisateurService;
 
 
@@ -40,5 +43,10 @@ public class UtilisateurRestController {
     @DeleteMapping("/utilisateur/{id}")
     public void delete(@PathVariable Long id) throws UtilisateurNotFoundException {
         utilisateurService.deleteUtilisateur(id);
+    }
+
+    @GetMapping("/{username}")
+    public Utilisateur getUsers(@PathVariable("username") String username) {
+        return this.utilisateurService.getUtilisateur(username);
     }
 }

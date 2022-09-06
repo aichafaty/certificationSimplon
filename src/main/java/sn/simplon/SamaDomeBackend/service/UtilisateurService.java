@@ -2,6 +2,7 @@ package sn.simplon.SamaDomeBackend.service;
 
 import sn.simplon.SamaDomeBackend.Exception.UtilisateurNotFoundException;
 import sn.simplon.SamaDomeBackend.dtos.UtilisateurDTO;
+import sn.simplon.SamaDomeBackend.entity.Utilisateur;
 
 import java.util.List;
 
@@ -13,4 +14,5 @@ public interface UtilisateurService {
     void deleteUtilisateur(Long id) throws UtilisateurNotFoundException;
 
     List<UtilisateurDTO> rechercheUtilisateur(String keyword);
+    Utilisateur getUtilisateur(String username);
 }

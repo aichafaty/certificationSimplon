@@ -7,7 +7,7 @@ import sn.simplon.SamaDomeBackend.dtos.UtilisateurDTO;
 
 import sn.simplon.SamaDomeBackend.entity.Utilisateur;
 import sn.simplon.SamaDomeBackend.mappers.Mapper;
-import sn.simplon.SamaDomeBackend.repository.RolesRepository;
+
 import sn.simplon.SamaDomeBackend.repository.UtilisateurRepository;
 
 import javax.transaction.Transactional;
@@ -67,5 +67,10 @@ public class UtilisateurImplement implements UtilisateurService{
         List<Utilisateur> utilisateurs=utilisateurRepository.rechercheUtilisateur(keyword);
        List<UtilisateurDTO> utilisateurDTOS=utilisateurs.stream().map(cust->mapperDTO.fromUtilisateur(cust)).collect(Collectors.toList());
         return utilisateurDTOS;
+    }
+
+    @Override
+    public Utilisateur getUtilisateur(String username) {
+        return this.utilisateurRepository.findByUsername(username);
     }
 }
