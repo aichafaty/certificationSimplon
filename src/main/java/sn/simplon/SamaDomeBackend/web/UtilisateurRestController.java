@@ -45,7 +45,7 @@ public class UtilisateurRestController {
         utilisateurService.deleteUtilisateur(id);
     }
 
-    @GetMapping("/{username}")
+    @GetMapping("/utilisateurs/{username}")
     public Utilisateur getUsers(@PathVariable("username") String username) {
         return this.utilisateurService.getUtilisateur(username);
     }

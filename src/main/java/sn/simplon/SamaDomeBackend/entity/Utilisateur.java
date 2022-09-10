@@ -42,7 +42,7 @@ public class Utilisateur implements UserDetails {
     @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private List<Notification> notifications;
 
-    @OneToMany(mappedBy = "utilisateur",fetch = FetchType.LAZY, cascade = { CascadeType.DETACH, CascadeType.MERGE, CascadeType.REFRESH, CascadeType.PERSIST, CascadeType.REMOVE })
+    @OneToMany(mappedBy = "utilisateur",fetch = FetchType.EAGER, cascade = { CascadeType.DETACH, CascadeType.MERGE, CascadeType.REFRESH, CascadeType.PERSIST, CascadeType.REMOVE })
     @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private List<UserRoles> userRoles;
 
@@ -61,16 +61,21 @@ public class Utilisateur implements UserDetails {
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         Set<Authority> set=new HashSet<>();
-        this.userRoles.forEach(userRoles ->{
-            set.add(new Authority(userRoles.getRoles().getLibelle()));
-        } );
-        return null;
+        if(userRoles!=null){
+//            for(UserRoles userRoles : userRoles){
+//                set.add(new Authority(userRoles.getRoles().getLibelle()));
+//            }
+            this.userRoles.forEach(userRoles ->{
+                set.add(new Authority(userRoles.getRoles().getLibelle()));
+            } );
+        }
+        return set;
     }
 
-    @Override
-    public String getUsername() {
-        return username;
-    }
+//    @Override
+//    public String getUsername() {
+//        return username;
+//    }
 
 
     @Override

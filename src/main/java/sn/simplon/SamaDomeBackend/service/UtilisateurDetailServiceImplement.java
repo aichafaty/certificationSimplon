@@ -9,9 +9,7 @@ import org.springframework.stereotype.Service;
 
 import sn.simplon.SamaDomeBackend.entity.Utilisateur;
 import sn.simplon.SamaDomeBackend.repository.UtilisateurRepository;
-@Component
 @Service
-
 public class UtilisateurDetailServiceImplement  implements UserDetailsService {
 
     @Autowired

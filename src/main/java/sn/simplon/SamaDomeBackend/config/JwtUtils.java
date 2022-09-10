@@ -13,7 +13,6 @@ import java.util.function.Function;
 
 
 @Component
-
 public class JwtUtils {
     private final String SECRET_KEY = "exempleportal";
 

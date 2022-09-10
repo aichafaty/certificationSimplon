@@ -3,6 +3,7 @@ package sn.simplon.SamaDomeBackend.entity;
 import lombok.Data;
 import org.springframework.security.core.GrantedAuthority;
 public class Authority implements GrantedAuthority {
+    private static final long serialVersionUID = 1L;
 
     private String authority;
 
@@ -11,6 +12,6 @@ public class Authority implements GrantedAuthority {
     }
     @Override
     public String getAuthority() {
-        return null;
+        return this.authority;
     }
 }
